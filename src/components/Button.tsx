@@ -1,10 +1,23 @@
 import React from 'react'
 
-const Button: React.FC = () => {
+interface Props {
+  color: string
+  bgColor: string
+  size: string
+  text: string
+  borderRadius: string
+}
+
+const Button: React.FC<Props> = ({ bgColor, color, size, text, borderRadius }) => {
   return (
-    <div>
-      Button
-    </div>
+    <button
+      type="button"
+      style={{ backgroundColor: bgColor, color, borderRadius }}
+      className={`text-${size} p-3 hover:drop-shadow-xl`}
+
+    >
+      {text}
+    </button>
   )
 }
 

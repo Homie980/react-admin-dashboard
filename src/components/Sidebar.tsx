@@ -10,7 +10,7 @@ import { links } from "../data/dummy";
 
 const Sidebar: React.FC = () => {
 
-  const { activeMenu, setActiveMenu, screenSize } = useStateContext();
+  const { activeMenu, setActiveMenu, screenSize, currentColor } = useStateContext();
 
   const handleCloseSideBar = () => {
     if (typeof screenSize === 'number') {
@@ -55,6 +55,9 @@ const Sidebar: React.FC = () => {
                     to={`/${link.name}`}
                     key={link.name}
                     onClick={handleCloseSideBar}
+                    style={({ isActive }) => ({
+                      backgroundColor: isActive ? currentColor : ''
+                    })}
                     className={({ isActive }) => isActive ? activeLink : normalLink}
                   >
                     {link.icon}
